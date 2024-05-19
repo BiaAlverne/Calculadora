@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CalculadoraBarbie</title>
+    <style>
+        h1 {
+            font-size: 24px;
+            color: #ec067e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9c6f6;
+        }
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .display {
+            width: 220px;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            border: 1px solid #ec067e;
+            border-radius: 5px;
+            background-color: #f6f1f6;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 55px);
+            grid-gap: 10px;
+        }
+        .buttons button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            border: 1px solid #ec067e;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f6f1f6;
+        }
+        .buttons button:hover {
+            background-color: #eaeaea;
+        }
+        .buttons button:nth-child(17) {
+            width: 246px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora da Barbie</h1>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculateResult()">=</button>
+
+        </div>
+    </div>
+    <footer>
+        <a href="#"><img src="https://i.pinimg.com/originals/56/8f/b1/568fb12d25c4bb2aacdc5c6ab7a4eea0.png" alt="Barbie Logo" style="width: 100px; margin-top: 20px;"></a>
+    </footer>
+    <script>
+        function clearDisplay() {
+            document.getElementById('display').innerText = '0';
+        }
+
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            if (display.innerText === '0' || display.innerText === 'Erro') {
+                display.innerText = value;
+            } else {
+                display.innerText += value;
+            }
+        }
+
+        function calculateResult() {
+            const display = document.getElementById('display');
+            try {
+                display.innerText = eval(display.innerText);
+            } catch (e) {
+                display.innerText = 'Erro';
+            }
+        }
+    </script>
+</body>
+</html>
