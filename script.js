@@ -1,4 +1,3 @@
-<script>
         function clearDisplay() {
             document.getElementById('display').innerText = '0';
         }
@@ -20,4 +19,3 @@
                 display.innerText = 'Erro';
             }
         }
-    </script>
